@@ -1,9 +1,12 @@
 const db = require('../data/dbConfig');
 
 module.exports = {
-  add
+  find
 }
 
+function find() {
+  return db('users').select('id', 'username', 'password');
+}
 // POST - /api/register - Creates a `user` using the information sent inside the `body` of the request. **Hash the password** before saving the user to the database. 
 
 
