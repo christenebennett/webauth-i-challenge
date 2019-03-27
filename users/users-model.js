@@ -1,14 +1,27 @@
 const db = require('../data/dbConfig');
 
 module.exports = {
-  find
+  find,
+  findById,
+  add
 }
 
 function find() {
   return db('users').select('id', 'username', 'password');
 }
-// POST - /api/register - Creates a `user` using the information sent inside the `body` of the request. **Hash the password** before saving the user to the database. 
 
+function findById(id){
+  return db('users')
+    .select('id', 'username', 'password')
+    .where({ id })
+    .first();
+}
+// POST - /api/register - Creates a `user` using the information sent inside the `body` of the request. **Hash the password** before saving the user to the database. 
+async function add(user){
+  const [id] = await db('users').insert(user);
+  return findById(id);
+    
+}
 
 //  POST    /api/login     Use the credentials sent inside the `body` to authenticate the user. On successful login, create a new session for the user and send back a 'Logged in' message and a cookie that contains the user id. If login fails, respond with the correct status code and the message: 'You shall not pass!' 
 
