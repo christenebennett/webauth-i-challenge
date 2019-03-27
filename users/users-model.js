@@ -1,10 +1,8 @@
-const express = require('express');
-const bcrypt = require('bcryptjs');
-const helmet = require('helmet');
-const cors = require('cors');
+const db = require('../data/dbConfig');
 
-const db = require('./data/dbConfig.js');
-const Users = require('./users/users-model.js');
+module.exports = {
+  add
+}
 
 // POST - /api/register - Creates a `user` using the information sent inside the `body` of the request. **Hash the password** before saving the user to the database. 
 
