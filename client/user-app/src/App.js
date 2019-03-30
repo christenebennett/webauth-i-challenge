@@ -14,14 +14,6 @@ class App extends Component {
       }
     }
   }
-  // componentDidMount(){
-  //   axios
-  //     .get('http://localhost:9000/api/users')
-  //     .then(response => {
-  //       console.log(response)
-  //     })
-  //     .catch(err => console.log(err))
-  // }
 
   onInputChange = event => {
     this.setState({
@@ -56,7 +48,6 @@ class App extends Component {
             <input type="text" name="username" placeholder="username" onChange={this.onInputChange}/>
             <input type="text" name="password" placeholder="password" onChange={this.onInputChange}/>
           </form>
-
         </header>
       </div>
     );
